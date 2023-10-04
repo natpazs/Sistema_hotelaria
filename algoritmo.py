@@ -19,9 +19,10 @@ def main():
             print("Bem vindo ao Hotel")
             print("--- MENU ---")
             print("01 - Cadastrar Cliente")
-            print("02 - Visualizar quartos disponiveis")
-            print("03 - Fazer reserva")
-            print("04 - Sair")
+            print("02 - Visualizar clientes")
+            print("03 - Visualizar quartos disponiveis")
+            print("04 - Fazer reserva")
+            print("05 - Sair")
 
             menu = int(input("Qual opção você deseja? \n -"))
             os.system("pause")
@@ -34,18 +35,29 @@ def main():
                     email = input("Qual o email do cliente: ")
                     cpf = int(input("Qual o cpf do cliente: "))
                     hotel.cadastrarCliente(nome, email, cpf)
+                    os.system("pause")
+                    os.system("cls")
 
                 case 2:
-                    disponiveis = hotel.listarDisponiveis()
-                    for quarto in disponiveis:
-                        print(f"Quarto disponível: {quarto.getDescricao()} - Valor: R${quarto.valor}")
+                    hotel.listarClientes()
+                    os.system("pause")
+                    os.system("cls")
 
                 case 3:
+                    disponiveis = hotel.listarDisponiveis()
+                    for quarto in disponiveis:
+                        print(f"Quarto disponível - Valor: R${quarto.valor}")
+                    os.system("pause")
+                    os.system("cls")
+
+                case 4:
                     quarto = input("Informe o quarto que será reservado: ")
                     cliente = input("Informe o cliente que o reservará: ")
                     hotel.fazerReserva(quarto, cliente)
+                    os.system("pause")
+                    os.system("cls")
 
-                case 4:
+                case 5:
                     break
 
                 case _:
